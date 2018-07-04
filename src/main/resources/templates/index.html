@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+ 
+<html>
+<head>
+	  <title>Spring Boot - Angularjs Example</title>
+	  <meta charset="utf-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1" />
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	  <script src="/js/controller.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	  
+</head>
+<body>
+ 
+<div class="container" ng-app="app">
+ 
+	<h3 style="color:blue">Student Details Example</h3>
+	
+	<div ng-controller="postcontroller">
+		<form class="form-horizontal" name="customerForm" ng-submit="submitForm()">
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="nameID">StudentName:</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" name="name" id="nameID"
+						placeholder="Enter Name" ng-model="name"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="doorNoId">DoorNo:</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" name="lastname" id="doorNoId"
+						placeholder="Enter DoorNo" ng-model="doorNo"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="cityID">City:</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" name="city" id="cityID"
+						placeholder="Enter City" ng-model="city"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="districtId">District:</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" name="district" id="districtId"
+						placeholder="Enter District" ng-model="district"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2" for="stateId">State:</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" name="state" id="stateId"
+						placeholder="Enter State" ng-model="state"/>
+				</div>
+			</div>
+			
+			
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default">Submit</button>
+				</div>
+			</div>
+		</form>
+ 
+		<div class="col-sm-offset-2 col-sm-10">
+			<p ng-show="postResultMessage.name!=null"><b>{{postResultMessage.name}}</b> Address Details added successfully</p>
+		</div>
+	</div>
+	
+	<div class="col-sm-offset-2 col-sm-10" ng-controller="getcontroller">
+		<button id="btn-id" type="button" class="btn btn-primary" ng-click="getfunction()">Get All Students</button>
+		<ul>
+        	<li ng-repeat="cust in response">{{cust.name}}</li>
+    	</ul>
+	</div>
+	
+</div>
+</body>
+</html>
